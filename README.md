@@ -1,6 +1,12 @@
-# Connecting with `pyodbc` locally
+# Connecting to MS SQL Server Databases with Python
 
-## Setup and installation
+## Connecting through Docker images (Linux)
+
+Look at the folder examples.
+
+## Connecting with `pyodbc` locally
+
+### Setup and installation
 
 - Run `brew install unixodbc` to get a tool required for installing drivers
 - Install the [latest version](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15) drivers & tools (currently 18)
