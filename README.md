@@ -1,28 +1,26 @@
-# PyMSSQL example
+# Connecting with `pyodbc` locally
 
-A small example of using `pymssql` inside a Lambda function.
+## Setup and installation
 
-## Installation
+- Run `brew install unixodbc` to get a tool required for installing drivers
+- Install the [latest version](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15) drivers & tools (currently 18)
 
-Don't install anything; do it all through Docker.
+```sh
+brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+brew install msodbcsql18 mssql-tools18
+```
 
-**OR** 
+- Create an `.env` with the following keys
 
-- `brew install FreeTDS`
-- `export CFLAGS="-I$(brew --prefix openssl)/include"`
-- `export LDFLAGS="-L$(brew --prefix openssl)/lib -L/usr/local/opt/openssl/lib"`
-- `export CPPFLAGS="-I$(brew --prefix openssl)/include"`
-- `pip install --pre --no-binary :all: -r requirements.txt --no-cache`
+```sh
+DB_HOST=XXXXXXXXXX
+DB_PORT=1433
+DB_NAME=XXXXXXXXXX
+DB_USERNAME=XXXXXXXXXX
+DB_PASSWORD=XXXXXXXXXX
+DB_DRIVER=ODBC Driver 18 for SQL Server
+```
 
-## Setup
-
-- Build the image with `bash build-image.sh`
-- Run a container locally with `bash run-container.sh`
-- In a second terminal, check the container behaves as expected through `bash test-container.sh`
-
-## Benefits
-
-- No need for `sqlalchemy`
-- Familiar cursor syntax
-- Bulk insertion
-- No awkward transition to the cloud (just ECR the final image)
+- Replace and update values as needed
+- Install all required libraries (`pyodbc` for definite, others as required)
+- Run the code

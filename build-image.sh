@@ -1,1 +1,0 @@
-docker build -t mssql-lambda-test:latest --platform "linux/amd64" . 
